@@ -41,12 +41,11 @@ class UserDao {
         $this->adapter = $adapter;
     }
 
-    public function getUsersForPage($page = 1, $cantItemsByPage = 5, $data = null)
+    public function getUsersByPage($page = 1, $cantItemsByPage = 5)
     {
-        if (!$data) {
-            $data = $this->data;
-        }
-        $cantUsers = count($data);
+        
+        
+        $cantUsers = count($this->data);
         $posicionInicial = ($page - 1) * $cantItemsByPage;
         
         if ($cantUsers % $cantItemsByPage == 0) {
@@ -56,11 +55,13 @@ class UserDao {
         }
         
         $result = array();
-
+        
         for ($i = $posicionInicial; $i < $posicionFinal; $i ++) {
-            $result[] = $data[$i];
+            $result[] = $this->data[$i];
         }
-                
+        
+        unset($this->data);
+        
         return $result;
         
     }
@@ -70,26 +71,18 @@ class UserDao {
         return count($this->data);
     }
     
-    public function getUserByQuery($queryParams)
+    public function filterDataByQuery($queryParams)
     {
-        $result = array();
-        $temp = null;
         
-        foreach($this->data as $usuario) {
+        foreach($this->data as $keyData => $usuario) {
             
-            foreach ($queryParams as $key => $value) {
-                if ($usuario[$key] == $value) {
-                    $temp = $usuario;
-                } else {
-                    $temp = null;
-                }
+            foreach ($queryParams as $keyQuery => $value) {
+                if ($usuario[$keyQuery] != $value) {
+                    unset($this->data[$keyData]);
+                    break;
+                } 
             }
-            if ($temp) {
-                $result[] = $temp;
-            }
-            
         }
-        return $result;
     }
     
     

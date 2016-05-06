@@ -18,58 +18,46 @@ use Zend\View\Model\ViewModel;
 class VarController extends AbstractActionController
 {
     
-    
+    /**
+     * 
+     * @return ViewModel
+     */
     public function usersAction()
     {
         
         $config = $this->getServiceLocator()->get('Config');
-        $cantItemsPorPage = $config['JsonAdapterConfig']['cantItemsbyPage'];
+        $cantItemsByPage = $config['JsonAdapterConfig']['cantItemsbyPage'];
         $page = $this->params()->fromRoute('page') ? : 1;
         $adapter = new DataAccessJsonAdapter();
         $adapter->setConfig($config['JsonAdapterConfig']);
         $userDAO = new UserDao($adapter);
-        $session = new Container('sesion');
+        $postParamsSession = new Container('postParam');
         
         if ($this->getRequest()->isPost()) {
-            
             $postParams = $this->getRequest()->getPost();
             $queryParams = $this->_createQuery($postParams);
-            
-            if ($queryParams){
-                $listUsuarios = $userDAO->getUserByQuery($queryParams);
-                $cantUsers = count($listUsuarios);
-                $session->post = $postParams;
-            } else{
-                $listUsuarios = $userDAO->getUsersForPage($page, $cantItemsPorPage);
-                $cantUsers = $userDAO->getCountUsers();
-                $session->post = null;
-            }
-            
-        } else {
-            
-            if ($session->post) {
-                $queryParams = $this->_createQuery($session->post);
-                $listUsuarios = $userDAO->getUserByQuery($queryParams);
-                $cantUsers = count($listUsuarios);
-            } else {
-                $listUsuarios = $userDAO->getUsersForPage($page, $cantItemsPorPage);
-                $cantUsers = $userDAO->getCountUsers();
-            }
-           
+            $postParamsSession->params = $postParams;
         }
+            
+        if ($postParamsSession->params) {
+            $queryParams = $this->_createQuery($postParamsSession->params);
+            $userDAO->filterDataByQuery($queryParams);
+        } 
         
-
-        if ($cantUsers % $cantItemsPorPage == 0) {
-            $cantPages = $cantUsers / $cantItemsPorPage;
+        $listUsuarios = $userDAO->getUsersByPage($page, $cantItemsByPage);   
+        $cantUsers = count($listUsuarios);
+        
+        if ($cantUsers % $cantItemsByPage == 0) {
+            $cantPages = $cantUsers / $cantItemsByPage;
         } else {
-            $cantPages = $cantUsers / $cantItemsPorPage + 1;
+            $cantPages = $cantUsers / $cantItemsByPage + 1;
         }
         
         return new ViewModel(
             array(
                 "usuarios" => $listUsuarios ? : null,
                 "cantPages" => $cantPages ? : 1,
-                'post' => $session->post ? : array()
+                'post' => $postParamsSession->params ?  : null
             )
         );
         
