@@ -1,0 +1,14 @@
+{
+    "name": "RaulQM/ejercicio",
+    "description": "",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "POO",
+        "example",
+        "ZF2"
+    ],
+    "require": {
+        "php": ">=5.6",
+        "zendframework/zendframework": "~2.5"
+    }
+}

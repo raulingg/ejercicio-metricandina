@@ -1,0 +1,418 @@
+{
+    "users": {
+        "version": "1.0",
+        "dumpDate": "2015-05-02 00:05:10",
+        "source": "MySQL Server 5.6",
+        "data": [
+            [
+                {
+                    "id": 0,
+                    "isActive": true,
+                    "firstName": "Aguilar",
+                    "lastName": "Simpson",
+                    "email": "aguilarsimpson@asimiline.com",
+                    "gender": "male",
+                    "age": 32,
+                    "phone": "+051 (998) 448-2219",
+                    "company": "Zolavo",
+                    "address": "387 Nostrand Avenue, Orviston, Connecticut,2022",
+                    "roles": [
+                        1,
+                        7
+                    ]
+                },
+                {
+                    "id": 1,
+                    "isActive": false,
+                    "firstName": "Hinton",
+                    "lastName": "Hernandez",
+                    "email": "hintonhernandez@zolavo.com",
+                    "gender": "male",
+                    "age": 38,
+                    "phone": "+051 (843) 586-2546",
+                    "company": "Amtap",
+                    "address": "409 Kenilworth Place, Elwood, Illinois,2516",
+                    "roles": [
+                        4,
+                        2,
+                        10
+                    ]
+                },
+                {
+                    "id": 2,
+                    "isActive": true,
+                    "firstName": "Russell",
+                    "lastName": "Wong",
+                    "email": "russellwong@amtap.com",
+                    "gender": "male",
+                    "age": 37,
+                    "phone": "+051 (924) 530-2254",
+                    "company": "Glukgluk",
+                    "address": "664 Hendrix Street, Crenshaw, South Dakota,3224",
+                    "roles": [
+                        8,
+                        7,
+                        5
+                    ]
+                },
+                {
+                    "id": 3,
+                    "isActive": false,
+                    "firstName": "Rose",
+                    "lastName": "Stout",
+                    "email": "rosestout@glukgluk.com",
+                    "gender": "female",
+                    "age": 27,
+                    "phone": "+051 (850) 569-3502",
+                    "company": "Kongene",
+                    "address": "558 Bethel Loop, Coldiron, Virginia,1025",
+                    "roles": [
+                        8,
+                        7,
+                        5
+                    ]
+                },
+                {
+                    "id": 4,
+                    "isActive": false,
+                    "firstName": "Beth",
+                    "lastName": "Haley",
+                    "email": "bethhaley@kongene.com",
+                    "gender": "female",
+                    "age": 23,
+                    "phone": "+051 (947) 475-2567",
+                    "company": "Idealis",
+                    "address": "295 Albemarle Road, Valle, Arizona,3772",
+                    "roles": [
+                        3,
+                        1,
+                        2
+                    ]
+                },
+                {
+                    "id": 5,
+                    "isActive": true,
+                    "firstName": "Paulette",
+                    "lastName": "Chambers",
+                    "email": "paulettechambers@idealis.com",
+                    "gender": "female",
+                    "age": 43,
+                    "phone": "+051 (901) 514-3575",
+                    "company": "Zilencio",
+                    "address": "244 Kermit Place, Baden, Rhode Island,3414",
+                    "roles": [
+                        8,
+                        6,
+                        7
+                    ]
+                },
+                {
+                    "id": 6,
+                    "isActive": false,
+                    "firstName": "Queen",
+                    "lastName": "Berger",
+                    "email": "queenberger@zilencio.com",
+                    "gender": "female",
+                    "age": 27,
+                    "phone": "+051 (864) 519-2273",
+                    "company": "Comvex",
+                    "address": "216 Middleton Street, Tooleville, Pennsylvania,7380",
+                    "roles": [
+                        9,
+                        6,
+                        10
+                    ]
+                },
+                {
+                    "id": 7,
+                    "isActive": true,
+                    "firstName": "Johnnie",
+                    "lastName": "Mccarty",
+                    "email": "johnniemccarty@comvex.com",
+                    "gender": "female",
+                    "age": 35,
+                    "phone": "+051 (867) 464-3609",
+                    "company": "Lexicondo",
+                    "address": "576 Lee Avenue, Layhill, Maryland,9831",
+                    "roles": [
+                        3,
+                        1,
+                        9
+                    ]
+                },
+                {
+                    "id": 8,
+                    "isActive": true,
+                    "firstName": "Espinoza",
+                    "lastName": "Sanford",
+                    "email": "espinozasanford@lexicondo.com",
+                    "gender": "male",
+                    "age": 47,
+                    "phone": "+051 (836) 566-3208",
+                    "company": "Moltonic",
+                    "address": "301 Oriental Boulevard, Canterwood, Montana,9679",
+                    "roles": [
+                        7,
+                        8,
+                        6
+                    ]
+                },
+                {
+                    "id": 9,
+                    "isActive": false,
+                    "firstName": "Madelyn",
+                    "lastName": "Logan",
+                    "email": "madelynlogan@moltonic.com",
+                    "gender": "female",
+                    "age": 37,
+                    "phone": "+051 (918) 523-3283",
+                    "company": "Optique",
+                    "address": "708 Townsend Street, Malo, Arkansas,4312",
+                    "roles": [
+                        10,
+                        3,
+                        2
+                    ]
+                },
+                {
+                    "id": 10,
+                    "isActive": false,
+                    "firstName": "Gale",
+                    "lastName": "Robbins",
+                    "email": "galerobbins@optique.com",
+                    "gender": "female",
+                    "age": 42,
+                    "phone": "+051 (910) 563-2145",
+                    "company": "Exiand",
+                    "address": "989 Wythe Avenue, Escondida, Marshall Islands,3463",
+                    "roles": [
+                        7,
+                        3,
+                        6
+                    ]
+                },
+                {
+                    "id": 11,
+                    "isActive": false,
+                    "firstName": "Gomez",
+                    "lastName": "Dotson",
+                    "email": "gomezdotson@exiand.com",
+                    "gender": "male",
+                    "age": 43,
+                    "phone": "+051 (934) 518-3874",
+                    "company": "Perkle",
+                    "address": "620 Willow Place, Sanborn, Washington,7835",
+                    "roles": [
+                        3,
+                        5,
+                        1
+                    ]
+                },
+                {
+                    "id": 12,
+                    "isActive": true,
+                    "firstName": "Summers",
+                    "lastName": "Osborn",
+                    "email": "summersosborn@perkle.com",
+                    "gender": "male",
+                    "age": 33,
+                    "phone": "+051 (926) 481-2300",
+                    "company": "Genesynk",
+                    "address": "221 Vanderbilt Street, Keyport, Massachusetts,9785",
+                    "roles": [
+                        5,
+                        4,
+                        10
+                    ]
+                },
+                {
+                    "id": 13,
+                    "isActive": true,
+                    "firstName": "Florine",
+                    "lastName": "Hooper",
+                    "email": "florinehooper@genesynk.com",
+                    "gender": "female",
+                    "age": 33,
+                    "phone": "+051 (904) 418-3407",
+                    "company": "Zanilla",
+                    "address": "150 Lincoln Road, Mayfair, Vermont,8094",
+                    "roles": [
+                        4,
+                        8,
+                        5
+                    ]
+                },
+                {
+                    "id": 14,
+                    "isActive": false,
+                    "firstName": "Kathrine",
+                    "lastName": "Harris",
+                    "email": "kathrineharris@zanilla.com",
+                    "gender": "female",
+                    "age": 38,
+                    "phone": "+051 (848) 590-3684",
+                    "company": "Synkgen",
+                    "address": "854 Emerson Place, Stagecoach, Guam,9479",
+                    "roles": [
+                        2,
+                        4,
+                        3
+                    ]
+                },
+                {
+                    "id": 15,
+                    "isActive": true,
+                    "firstName": "Frazier",
+                    "lastName": "Soto",
+                    "email": "fraziersoto@synkgen.com",
+                    "gender": "male",
+                    "age": 31,
+                    "phone": "+051 (973) 427-3553",
+                    "company": "Octocore",
+                    "address": "769 Navy Street, Drummond, Colorado,8451",
+                    "roles": [
+                        5,
+                        6,
+                        9
+                    ]
+                },
+                {
+                    "id": 16,
+                    "isActive": false,
+                    "firstName": "Wolfe",
+                    "lastName": "Weaver",
+                    "email": "wolfeweaver@octocore.com",
+                    "gender": "male",
+                    "age": 31,
+                    "phone": "+051 (855) 580-3303",
+                    "company": "Virxo",
+                    "address": "459 Kensington Street, Cannondale, Minnesota,8731",
+                    "roles": [
+                        6,
+                        8,
+                        9
+                    ]
+                },
+                {
+                    "id": 17,
+                    "isActive": false,
+                    "firstName": "Trisha",
+                    "lastName": "Atkins",
+                    "email": "trishaatkins@virxo.com",
+                    "gender": "female",
+                    "age": 24,
+                    "phone": "+051 (953) 568-3373",
+                    "company": "Qnekt",
+                    "address": "741 Stryker Street, Nanafalia, West Virginia,9570",
+                    "roles": [
+                        4,
+                        2,
+                        1
+                    ]
+                },
+                {
+                    "id": 18,
+                    "isActive": false,
+                    "firstName": "Rivas",
+                    "lastName": "Barry",
+                    "email": "rivasbarry@qnekt.com",
+                    "gender": "male",
+                    "age": 41,
+                    "phone": "+051 (876) 468-3835",
+                    "company": "Minga",
+                    "address": "899 Bijou Avenue, Dyckesville, New Mexico,5449",
+                    "roles": [
+                        1,
+                        2,
+                        9
+                    ]
+                },
+                {
+                    "id": 19,
+                    "isActive": true,
+                    "firstName": "Battle",
+                    "lastName": "Walls",
+                    "email": "battlewalls@minga.com",
+                    "gender": "male",
+                    "age": 23,
+                    "phone": "+051 (977) 541-3889",
+                    "company": "Quotezart",
+                    "address": "393 Provost Street, Riner, New York,6649",
+                    "roles": [
+                        10,
+                        2,
+                        1
+                    ]
+                },
+                {
+                    "id": 20,
+                    "isActive": false,
+                    "firstName": "Huff",
+                    "lastName": "Hebert",
+                    "email": "huffhebert@quotezart.com",
+                    "gender": "male",
+                    "age": 35,
+                    "phone": "+051 (954) 565-3801",
+                    "company": "Aquazure",
+                    "address": "950 Ocean Avenue, Belgreen, South Carolina,5734",
+                    "roles": [
+                        4,
+                        7,
+                        5
+                    ]
+                },
+                {
+                    "id": 21,
+                    "isActive": false,
+                    "firstName": "Bowen",
+                    "lastName": "Saunders",
+                    "email": "bowensaunders@aquazure.com",
+                    "gender": "male",
+                    "age": 21,
+                    "phone": "+051 (924) 532-3282",
+                    "company": "Fleetmix",
+                    "address": "423 Radde Place, Thornport, Tennessee,6066",
+                    "roles": [
+                        10,
+                        9,
+                        1
+                    ]
+                },
+                {
+                    "id": 22,
+                    "isActive": true,
+                    "firstName": "Beach",
+                    "lastName": "Kirby",
+                    "email": "beachkirby@fleetmix.com",
+                    "gender": "male",
+                    "age": 43,
+                    "phone": "+051 (941) 401-3780",
+                    "company": "Elpro",
+                    "address": "144 Richards Street, Turah, Puerto Rico,5748",
+                    "roles": [
+                        6,
+                        3,
+                        7
+                    ]
+                },
+                {
+                    "id": 23,
+                    "isActive": true,
+                    "firstName": "Baxter",
+                    "lastName": "Clayton",
+                    "email": "baxterclayton@elpro.com",
+                    "gender": "male",
+                    "age": 28,
+                    "phone": "+051 (898) 534-3727",
+                    "company": "Isotronic",
+                    "address": "102 Cooke Court, Grazierville, American Samoa,6381",
+                    "roles": [
+                        5,
+                        4,
+                        8
+                    ]
+                }
+            ]
+        ]
+    }
+}
