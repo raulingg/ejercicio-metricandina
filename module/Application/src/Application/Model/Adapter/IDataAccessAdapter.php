@@ -10,8 +10,14 @@ namespace Application\Model\Adapter;
  * @author Raul Quispe
  */
 interface IDataAccessAdapter {
-    
+
+    /**
+     * @return mixed array | object
+     */
     public function read();
-    
+
+    /**
+     * @param mixed $config array | object
+     */
     public function setConfig($config);
 }

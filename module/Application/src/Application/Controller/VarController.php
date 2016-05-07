@@ -9,7 +9,11 @@
 
 namespace Application\Controller;
 
+use Application\Model\Adapter\DataAccessCsvAdapter;
 use Application\Model\Adapter\DataAccessJsonAdapter;
+use Application\Model\Adapter\DataAccessXMLAdapter;
+use Application\Model\DAO\ActionDao;
+use Application\Model\DAO\RolDao;
 use Application\Model\DAO\UserDao;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Session\Container;
@@ -50,7 +54,7 @@ class VarController extends AbstractActionController
             $userDAO->filterDataByQuery($queryParams);
         }
 
-        $cantUsers = $userDAO->getCountUsers();
+        $cantUsers = $userDAO->count();
         $listUsuarios = $userDAO->getUsersByPage($page, $cantItemsByPage);
 
         
@@ -68,6 +72,30 @@ class VarController extends AbstractActionController
             )
         );
         
+    }
+    public function userAction()
+    {
+        $id = $this->params()->fromRoute('id');
+        $config = $this->getServiceLocator()->get('Config');
+        $userDAO = new UserDao(new DataAccessJsonAdapter($config['JsonAdapterConfig']));
+        $user = $userDAO->findById($id);
+
+        if(!$user) {
+            return $this->redirect()->toRoute('users-list');
+        }
+
+        $rolDAO = new rolDao(new DataAccessXMLAdapter($config['XmlAdapterConfig']));
+        $actionDAO = new ActionDao(new DataAccessCsvAdapter($config['CsvAdapterConfig']));
+        foreach($user['roles'] as $rolKey => $rolId) {
+
+            $user['roles'][$rolKey] = $rolDAO->findById($rolId);
+            foreach($user['roles'][$rolKey]['actions']['action'] as $actionKey => $actionId) {
+                $user['roles'][$rolKey]['actions']['action'][$actionKey] = $actionDAO->findById($actionId);
+            }
+        }
+
+        return array('user' => $user);
+
     }
 
     /**

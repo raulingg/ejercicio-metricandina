@@ -1,11 +1,21 @@
-ZendSkeletonApplication
+Ejercicio MetriAndina
 =======================
 
-Introduction
+Introducción
 ------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+
+Se optó por usar este marco de trabajo porque sirve de base para el
+enrutamiento, configuracion, front controller, etc
+
+El ejercicio programando con las funciones nativas de PHP hubiera tomado demasiado tiempo
+solo tuve oportunidad de ver el proyecto en horas recortadas.
+
+
+Mejoras
+------------
+Tal vez haya muchas cosas que mejorar:
+- Colocar una clase Paginator
+- Encontrar una forma de mayor rendimiento para leer el archivo XML y JSON
 
 Installation using Composer
 ---------------------------

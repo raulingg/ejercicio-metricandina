@@ -1,0 +1,28 @@
+<div class="container">
+    <form class="form-inline">
+        <?php
+            echo $this->partial(
+                'application/partial/user-detail',
+                array('user' => $user)
+            )
+        ?>
+        <hr>
+        <?php
+        echo $this->partial(
+            'application/partial/user-rol',
+            array('roles' => $user['roles'])
+        )
+        ?>
+        <hr>
+        <div class="row">
+            <div class="pull-right">
+                <button type="button" class="btn btn-primary btn-lg">Save</button>
+                <a href="<?php echo $this->basePath()?>/foo/var/users"
+                   type="button"
+                   class="btn btn-default btn-lg">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

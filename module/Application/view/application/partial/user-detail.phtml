@@ -1,0 +1,90 @@
+<h2>User Detail</h2>
+<br>
+<div class="row">
+    <label class="col-sm-1 control-label">First Name</label>
+    <div class="col-sm-3">
+        <input type="text" class="form-control" value="<?php echo $user['firstName']?>">
+    </div>
+    <label class="col-sm-1 control-label">Email</label>
+    <div class="col-sm-3">
+        <input type="text" class="form-control" value="<?php echo $user['email']?>">
+    </div>
+    <label class="col-sm-1 control-label">Phone</label>
+    <div class="col-sm-3">
+        <input type="text" class="form-control" value="<?php echo $user['phone']?>">
+    </div>
+</div>
+<div class="row">
+    <label class="col-sm-1 control-label">Last Name</label>
+    <div class="col-sm-3">
+        <input type="text" class="form-control" value="<?php echo $user['lastName']?>">
+    </div>
+    <label class="col-sm-1 control-label">Age</label>
+    <div class="col-sm-3">
+        <select class="form-control" name="age">
+            <option value="">select your age</option>
+        <?php if (!empty($user['age'])) :?>
+            <?php for ($i = 1; $i < 50; $i++) :?>
+            <option
+                value="<?php echo $i;?>"
+                <?php echo ($user['age'] == $i) ? 'selected="selected"' : '';?>>
+                <?php echo $i;?>
+            </option>
+            <?php endfor;?>
+        <?php else : ?>
+            <?php for ($i = 1; $i < 50; $i++) :?>
+            <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php endfor;?>
+        <?php endif;?>
+        </select>
+    </div>
+    <label class="col-sm-1 control-label">Gender</label>
+    <div class="col-sm-3">
+        <label class="checkbox-inline">
+            <input
+                type="radio"
+                value="male"
+                name="gender"
+                <?php echo (!empty($user['gender']) && $user['gender'] == "male") ? 'checked': '';?>> Male
+        </label>
+        <label class="checkbox-inline">
+            <input
+                type="radio"
+                value="female"
+                name="gender"
+                <?php echo (!empty($user['gender']) && $user['gender'] == "female") ? 'checked': '';?>> Female
+        </label>
+    </div>
+</div>
+<br>
+<div class="row">
+    <label class="col-sm-1 control-label">Company</label>
+    <div class="col-sm-3">
+        <input type="text" class="form-control" value="<?php echo $user['company']?>">
+    </div>
+    <label class="col-sm-1 control-label">Active</label>
+    <div class="col-sm-3">
+        <label class="checkbox-inline">
+            <input
+                type="radio"
+                value="true"
+                name="isActive"
+                <?php echo $user['isActive'] ? 'checked': '';?>> Yes
+        </label>
+        <label class="checkbox-inline">
+            <input
+                type="radio"
+                value="false"
+                name="isActive"
+                <?php echo !$user['isActive'] ? 'checked': '';?>> Not
+        </label>
+    </div>
+</div>
+<br>
+<div class="row">
+    <label class="col-sm-1 control-label">Address</label>
+    <div class="col-sm-11">
+        <textarea class="form-control" rows="4"><?php echo $user['address']?></textarea>
+    </div>
+</div>
+

@@ -1,0 +1,23 @@
+<h2>User Roles</h2>
+<?php foreach ($roles as $rol) : ?>
+    <h4><?php echo $rol['name']?></h4>
+    <?php $actions = $rol['actions']['action'];?>
+    <div class="row">
+
+    <?php foreach ($actions as $action) : ?>
+
+        <div class="col-sm-2">
+            <label class="checkbox-inline">
+                <input
+                    type="checkbox"
+                    id="checkboxAction"
+                    value="1"
+                    name="actions[<?php echo $rol['id'];?>][<?php echo $action['id'];?>]"
+                    checked> <?php echo $action['name'];?>
+            </label>
+        </div>
+
+    <?php endforeach; ?>
+    </div>
+<?php endforeach; ?>
+

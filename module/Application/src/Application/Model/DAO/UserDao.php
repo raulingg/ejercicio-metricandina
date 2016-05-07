@@ -2,14 +2,12 @@
 
 namespace Application\Model\DAO;
 
-use Application\Model\Adapter\DataAccessJsonAdapter;
 use Application\Model\Adapter\IDataAccessAdapter;
-use Zend\Paginator\Adapter\ArrayAdapter;
-use Zend\Paginator\Paginator;
+use Exception;
 
 
 /**
- * UserDao : Objeto de acceso a datos para usuarios
+ * UserDao : Data Access Object for usuarios
  *
  * @author Raul Quispe
  */
@@ -28,8 +26,7 @@ class UserDao {
     {
         if ($adapter) {
             $this->adapter = $adapter;
-            $json = $this->adapter->read();
-            $this->data =  $json['users']['data'][0];
+            $this->data =  $this->adapter->read();
         }
        
     }
@@ -47,11 +44,10 @@ class UserDao {
     public function read()
     {
         if ($this->adapter){
-            $this->adapter = new DataAccessJsonAdapter();
+            throw new Exception("Adapter not found");
         }
 
-        $json = $this->adapter->read();
-        $this->data =  $json['users']['data'][0];
+        $this->data = $this->adapter->read();
     }
 
     public function getUsersByPage($page = 1, $cantItemsByPage = 5)
@@ -78,8 +74,27 @@ class UserDao {
         return $result;
         
     }
+
+    /**
+     *
+     * findById : Búsqueda de usuario por id
+     * @param $id identificador de usuario
+     * @return array
+     */
+    public function findById($id)
+    {
+        $result = null;
+
+        foreach($this->data as $usuario) {
+            if ($usuario['id'] == $id) {
+                $result = $usuario;
+                break;
+            }
+        }
+        return $result;
+    }
     
-    public function getCountUsers()
+    public function count()
     {
         return count($this->data);
     }

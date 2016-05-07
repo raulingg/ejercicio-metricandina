@@ -12,13 +12,12 @@ namespace Application;
 return array(
     'XmlAdapterConfig' => array(
         'location' => BASE_PATH . '/data',
-        'file_name' => 'roles.csv',
+        'file_name' => 'roles.xml',
     ),
     'JsonAdapterConfig' => array(
         'location' => BASE_PATH . '/data',
         'file_name' => 'users.json',
         'cantItemsbyPage' => 5
-
     ),
     'CsvAdapterConfig' => array(
         'location' => BASE_PATH . '/data',
@@ -36,10 +35,6 @@ return array(
                     ),
                 ),
             ),
-            // The following is a route to simplify getting started creating
-            // new controllers and actions without needing to create a new
-            // module. Simply drop new controllers in, and you can access them
-            // using the path /application/:controller/:action
             'application' => array(
                 'type'    => 'Literal',
                 'options' => array(
@@ -63,6 +58,20 @@ return array(
                                 'controller' => 'Application\Controller\Var',
                                 'action' => 'users',
                                 'page' => 1
+                            ),
+                        ),
+                    ),
+                    'user-detail' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/var/user[/:id]',
+                            'constraints' => array(
+                                'id' => '[0-9]*'
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\Var',
+                                'action' => 'user',
+                                'id' => null
                             ),
                         ),
                     )
