@@ -65,7 +65,7 @@
         </div>
     </form>
     <br><br><br>
-    <?php if ($usuarios) :?>
+    <?php if ($users) :?>
     <table class="table table-bordered">
         <thead>
             <th>Id</th>
@@ -76,13 +76,13 @@
         </thead>
         <tbody>
 
-            <?php foreach ($usuarios as $usuario) :?>
+            <?php foreach ($users as $user) :?>
                 <tr>
-                    <td><a href="<?php echo $this->basePath()?>/foo/var/user/<?php echo $usuario['id'];?>"><?php echo $usuario['id']?></a></td>
-                    <td><?php echo $usuario['firstName'] . " " . $usuario['lastName']?></td>
-                    <td><?php echo $usuario['email']?></td>
-                    <td><?php echo $usuario['gender']?></td>
-                    <td><?php echo $usuario['age']?></td>
+                    <td><a href="<?php echo $this->basePath()?>/foo/var/user/<?php echo $user['id'];?>"><?php echo $user['id']?></a></td>
+                    <td><?php echo $user['firstName'] . " " . $user['lastName']?></td>
+                    <td><?php echo $user['email']?></td>
+                    <td><?php echo $user['gender']?></td>
+                    <td><?php echo $user['age']?></td>
                 </tr>
             <?php endforeach;?>
 
