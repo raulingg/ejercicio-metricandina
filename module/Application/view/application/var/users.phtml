@@ -2,41 +2,61 @@
     
     <h1>User List</h1>
     <form class="form-inline" action="<?php echo $this->basePath()?>/foo/var/users" method="POST">
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" class="form-control" id="txtEmail" name="email" placeholder="example@hotmail.com" value="<?php echo !empty($post['email']) ? $post['email']:'';?>">
-            </div>
-            <div class="col-lg-offset-1 form-group">
-                <label>Gender</label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" id="checkboxMale" value="female" name="gender" <?php echo (!empty($post['gender']) && $post['gender'] == "female") ? 'checked': '';?>> Male
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" id="checkboxFemale" value="male" name="gender" <?php echo (!empty($post['gender']) && $post['gender'] =="male") ? 'checked': '';?>> Female
-                </label>
-            </div>
-            <div class="col-lg-offset-1 form-group">
-                <label>Age</label>
-                <select class="form-control" name="age">
-                    <option value="">Seleccione su edad</option>
-                <?php if (!empty($post['age'])) :?>
-                    <?php for ($i = 1; $i < 50; $i++) :?>
-                    <option value="<?php echo $i;?>" <?php echo ($post['age'] == $i) ? 'selected="selected"' : '';?>><?php echo $i;?></option>
-                    <?php endfor;?>
-                <?php else : ?>
-                    <?php for ($i = 1; $i < 50; $i++) :?>
-                    <option value="<?php echo $i;?>"><?php echo $i;?></option>
-                    <?php endfor;?>
-                <?php endif;?>
-                    
-                </select>
-            </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input
+                type="text"
+                class="form-control"
+                id="txtEmail"
+                name="email"
+                placeholder="example@hotmail.com"
+                value="<?php echo !empty($post['email']) ? $post['email']:'';?>">
+        </div>
+        <div class="col-lg-offset-1 form-group">
+            <label>Gender</label>
+            <label class="checkbox-inline">
+                <input
+                    type="checkbox"
+                    id="checkboxMale"
+                    value="male"
+                    name="gender"
+                    <?php echo (!empty($post['gender']) && $post['gender'] == "male") ? 'checked': '';?>> Male
+            </label>
+            <label class="checkbox-inline">
+                <input
+                    type="checkbox"
+                    id="checkboxFemale"
+                    value="female"
+                    name="gender"
+                    <?php echo (!empty($post['gender']) && $post['gender'] == "female") ? 'checked': '';?>> Female
+            </label>
+        </div>
+        <div class="col-lg-offset-1 form-group">
+            <label>Age</label>
+            <select class="form-control" name="age">
+                <option value="">Seleccione su edad</option>
+            <?php if (!empty($post['age'])) :?>
+                <?php for ($i = 1; $i < 50; $i++) :?>
+                <option
+                    value="<?php echo $i;?>"
+                    <?php echo ($post['age'] == $i) ? 'selected="selected"' : '';?>>
+                    <?php echo $i;?>
+                </option>
+                <?php endfor;?>
+            <?php else : ?>
+                <?php for ($i = 1; $i < 50; $i++) :?>
+                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                <?php endfor;?>
+            <?php endif;?>
+            </select>
+        </div>
             
-            <div class="col-lg-offset-1 form-group">
-                <button type="submit" class="btn btn-primary btn-lg">Filter</button>
-            </div>
-        </form>
+        <div class="col-lg-offset-1 form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Filter</button>
+        </div>
+    </form>
     <br>
+    <?php if ($usuarios) :?>
     <table class="table table-bordered">
         <thead>
             <th>Id</th>
@@ -46,7 +66,7 @@
             <th>Age</th>
         </thead>
         <tbody>
-            <?php if ($usuarios) :?>
+
             <?php foreach ($usuarios as $usuario) :?>
                 <tr>
                     <td><a href="<?php echo $this->basePath()?>/foo/var/user-detail/<?php echo $usuario['id'];?>"><?php echo $usuario['id']?></a></td>
@@ -56,24 +76,22 @@
                     <td><?php echo $usuario['age']?></td>
                 </tr>
             <?php endforeach;?>
-            <?php else :?>
-                <h3>No se encontraron resultados! , por favor realice otra búsqueda</h3>
-            <?php endif;?>
+
         </tbody>
     </table>
-    
+    <?php else :?>
+        <h3 class="text-info">No se encontraron resultados! , por favor realice otra búsqueda</h3>
+    <?php endif;?>
     <ul id="pagination-demo" class="pagination-sm"></ul>
-    
-       
 </div>
 
 <script type="text/javascript">
-$('#pagination-demo').twbsPagination({
-    totalPages: <?php echo $cantPages?>,
-    visiblePages: 3,
-    href: '/foo/var/users/{{number}}',
-    onPageClick: function (event, page) {
-        $('#page-content').text('Page ' + page);
-    }
-});    
+    $('#pagination-demo').twbsPagination({
+        totalPages: <?php echo $cantPages?>,
+        visiblePages: 3,
+        href: '/foo/var/users/{{number}}',
+        onPageClick: function (event, page) {
+            $('#page-content').text('Page ' + page);
+        }
+    });
 </script>

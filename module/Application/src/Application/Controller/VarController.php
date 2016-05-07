@@ -15,37 +15,44 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Session\Container;
 use Zend\View\Model\ViewModel;
 
+
+/**
+ * VarController : Controlador principal para la obtención de datos
+ *
+ * @package Application\Controller
+ * @author Raul Quispe
+ */
 class VarController extends AbstractActionController
 {
     
     /**
-     * 
+     *  usersAction : Obtiene la solicitud GET y POST de los clientes,
+     * recibe y procesa los parámetros de filtrado y paginación
+     *
      * @return ViewModel
      */
     public function usersAction()
     {
         
         $config = $this->getServiceLocator()->get('Config');
+        $userDAO = new UserDao(new DataAccessJsonAdapter($config['JsonAdapterConfig']));
         $cantItemsByPage = $config['JsonAdapterConfig']['cantItemsbyPage'];
-        $page = $this->params()->fromRoute('page') ? : 1;
-        $adapter = new DataAccessJsonAdapter();
-        $adapter->setConfig($config['JsonAdapterConfig']);
-        $userDAO = new UserDao($adapter);
+        $page = $this->params()->fromRoute('page', 1);
+
         $postParamsSession = new Container('postParam');
         
         if ($this->getRequest()->isPost()) {
-            $postParams = $this->getRequest()->getPost();
-            $queryParams = $this->_createQuery($postParams);
-            $postParamsSession->params = $postParams;
+            $postParamsSession->params = $this->getRequest()->getPost();
         }
             
         if ($postParamsSession->params) {
             $queryParams = $this->_createQuery($postParamsSession->params);
             $userDAO->filterDataByQuery($queryParams);
-        } 
-        
-        $listUsuarios = $userDAO->getUsersByPage($page, $cantItemsByPage);   
-        $cantUsers = count($listUsuarios);
+        }
+
+        $cantUsers = $userDAO->getCountUsers();
+        $listUsuarios = $userDAO->getUsersByPage($page, $cantItemsByPage);
+
         
         if ($cantUsers % $cantItemsByPage == 0) {
             $cantPages = $cantUsers / $cantItemsByPage;
@@ -62,13 +69,17 @@ class VarController extends AbstractActionController
         );
         
     }
-    
-    private function _createQuery($postParams)
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    private function _createQuery($params)
     {
-        $queryParams  = array();
-        foreach ($postParams as $key => $value) {
+        $queryParams = array();
+        foreach ($params as $key => $value) {
             if ($value) {
-               $queryParams[$key] =  $value;
+                $queryParams[$key] = $value;
             }
         }
         

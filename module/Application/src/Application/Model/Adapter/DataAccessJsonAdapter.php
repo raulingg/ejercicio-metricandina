@@ -3,16 +3,12 @@
 namespace Application\Model\Adapter;
 
 use Zend\Config\Reader\Json;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
- * Description of DataAccessJsonAdapter
+ * DataAccessJsonAdapter : Esta clase sirve de adaptador para el acceso a la
+ * fuente de datos en formato JSON
  *
- * @author Media
+ * @author Raul Quispe
  */
 class DataAccessJsonAdapter implements IDataAccessAdapter{
     

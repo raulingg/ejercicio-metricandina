@@ -1,15 +1,13 @@
 <?php
 
 namespace Application\Model\Adapter;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
+ * IDataAccessAdapter : Contrato para la implementación del Patron Adapter
+ * con la finalidad de que nuestra aplicación sea flexible al cambio de la capa
+ * de acceso a datos
  *
- * @author Media
+ * @author Raul Quispe
  */
 interface IDataAccessAdapter {
     
