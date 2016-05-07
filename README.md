@@ -1,10 +1,10 @@
 Ejercicio MetriAndina
 =======================
 
-Introducción
+IntroducciÃ³n
 ------------
 
-Se optó por usar este marco de trabajo porque sirve de base para el
+Se optÃ³ por usar este marco de trabajo porque sirve de base para el
 enrutamiento, configuracion, front controller, etc
 
 El ejercicio programando con las funciones nativas de PHP hubiera tomado demasiado tiempo
