@@ -16,6 +16,8 @@ Mejoras
 Tal vez haya muchas cosas que mejorar:
 - Colocar una clase Paginator
 - Encontrar una forma de mayor rendimiento para leer el archivo XML y JSON
+- Realizar pruebas unitarias y de componentes al programar
+- Documentar absolutamente todas las clases y funciones
 
 Installation using Composer
 ---------------------------

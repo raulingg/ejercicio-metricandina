@@ -55,7 +55,7 @@ class VarController extends AbstractActionController
         }
 
         $cantUsers = $userDAO->count();
-        $listUsuarios = $userDAO->getUsersByPage($page, $cantItemsByPage);
+        $usersList = $userDAO->getUsersByPage($page, $cantItemsByPage);
 
         
         if ($cantUsers % $cantItemsByPage == 0) {
@@ -66,13 +66,20 @@ class VarController extends AbstractActionController
         
         return new ViewModel(
             array(
-                "usuarios" => $listUsuarios ? : null,
+                "users" => $usersList ? : null,
                 "cantPages" => $cantPages ? : 1,
                 'post' => $postParamsSession->params ?  : null
             )
         );
         
     }
+
+    /**
+     * userAction : Obtiene la solicitud GET con el parámetro id del usuario
+     * Con esta acción podemos obtener un usuario y sus relaciones
+     *
+     * @return array|\Zend\Http\Response
+     */
     public function userAction()
     {
         $id = $this->params()->fromRoute('id');
